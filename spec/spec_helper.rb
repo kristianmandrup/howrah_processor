@@ -1,9 +1,13 @@
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'bundler'
+Bundler.setup(:default, :test)
+
+require 'rspec'
+require 'rspec/autorun'
 require 'howrah_processor'
-require 'spec'
-require 'spec/autorun'
+require 'foxy_factory'
+require 'proxy_party'
 
 Spec::Runner.configure do |config|
-  
+  config.mock_with :mocha  
+  # config.include(Matchers)    
 end
